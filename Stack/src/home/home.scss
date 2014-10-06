@@ -1,0 +1,25 @@
+#outerWrapper {
+	#errorMsg {
+		color:red;	
+	}
+
+	#errorMsg{
+		height: 20px;
+		visibility :hidden;
+	}
+
+	#stackContainer{
+		li{
+			list-style: none;
+		}
+	}
+
+	#alertMessages{
+		position: absolute;
+		bottom:0px;
+		right:0px;
+		padding: 15px;
+		background-color: #e0e0e0;
+		border-radius: 8px;
+	}
+}

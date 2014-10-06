@@ -1,0 +1,19 @@
+<div id="outerWrapper">
+	<div id="UserInput">
+        <label for="itemName">Add Item:
+            <input type="text" data-ng-model="itemName" id="itemName">
+        </label>
+        <button data-ng-click="pushItem(itemName)">PUSH</button>
+		<button data-ng-click="popItem()">POP</button>
+	</div>
+
+	<div id="errorMsg">{{errorMsg}}</div>
+
+	<div id="stackContainer">
+		<ul>
+			<li data-ng-repeat="name in stackList.slice().reverse() track by $index">{{name}}</li>
+		</ul>
+	</div>
+
+	<div id="alertMessages" data-ng-model="alertMsg">{{alertMessage}}</div>
+</div>
