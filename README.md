@@ -1,2 +1,2 @@
-Shadow-Project-
+Shadow-Project
 ===============
