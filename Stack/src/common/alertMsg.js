@@ -1,13 +1,19 @@
-/*angular.module('stack')
+angular.module('stack')
 	.directive('alertMsg',function(){
 		'use strict';
 
 		return {
-			link: function (scope,element,attrs){
-				//scope.$watch(attrs.alertMsg,function(newVal,oldVal){
-					//element.css('display','inline');
-					element.fadeOut(2000);
-				//});
+			restrict: 'A',
+			link: function ($scope,element,attrs){
+				$scope.$watch(attrs.fadeshown,function(value){
+					if (value){
+						element.fadeIn(500);
+						$scope.fadedIn = false;
+					}
+					else {
+						element.fadeOut(1000);
+					}
+				});
 			}
 		};
-	});*/
+	});
