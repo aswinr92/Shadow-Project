@@ -16,6 +16,8 @@ describe('HomeController', function () {
             };
 
         });
+
+        _scope.stacks = [];
     });
 
 
@@ -25,7 +27,7 @@ describe('HomeController', function () {
     });
 
     it('should add item to the stack if length less than 10',function(){
-        _scope.stacks = [];
+        //_scope.stacks = [];
 
         _controller();
         spyOn(_scope,'showMsg');
@@ -38,7 +40,7 @@ describe('HomeController', function () {
     });
 
     it('should throw error message is stack length tries to exceed 10',function(){
-        _scope.stacks =[];
+        //_scope.stacks =[];
         //_scope.stacks.length = 10;
 
         _controller();
@@ -59,7 +61,7 @@ describe('HomeController', function () {
     });
 
     it('should remove the last added element from the stack on pop button click',function(){
-        _scope.stacks = [];
+        //_scope.stacks = [];
 
         _controller();
         spyOn(_scope,'showMsg');
@@ -73,7 +75,7 @@ describe('HomeController', function () {
     });
 
     it('should throw alert message stack underflow is pop is invoked when stack length is 0',function(){
-        _scope.tasks=[];
+        //_scope.tasks=[];
 
         _controller();
         spyOn(_scope,'showMsg');
@@ -82,6 +84,15 @@ describe('HomeController', function () {
         expect(_scope.showMsg).toHaveBeenCalledWith('Stack Underflow');
     });
 
-    
+    it('should delete all elements when remove all button is clicked',function(){
+        //_scope.tasks=[];
+
+        _controller();
+        spyOn(_scope,'showMsg');
+        _scope.removeAll();
+
+        expect(_scope.stacks.length).toEqual(0);
+        expect(_scope.showMsg).toHaveBeenCalledWith('All Items Removed from stack')
+    });
 
 });

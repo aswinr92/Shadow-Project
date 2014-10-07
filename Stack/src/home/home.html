@@ -10,9 +10,9 @@
 
 	<div id="stackContainer">
 		<ul>
-			<li data-ng-repeat="item in stacks.slice().reverse() track by $index">{{item}}</li>
+			<li data-ng-repeat="item in stacks track by $index">{{item}}</li>
 		</ul>
 	</div>
 
-	<div  id="alertMessages" alert-msg fadeshown="fadedIn" >{{alertMessage}}</div>
+	<div  id="alertMessages" alert-msg fadeshown="fadedIn" data-ng-class="{error:flag}">{{alertMessage}}</div>
 </div>
