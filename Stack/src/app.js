@@ -2,13 +2,13 @@
 
     'use strict';
 
-    angular.module('stack', [
+    angular.module('stack.angular', [
 
         'ngRoute',
         'ngResource',
         'ngSanitize',
         
-        'stack.templates',
+        'stack.angular.templates',
 
     ])
         .run(function ($log) {

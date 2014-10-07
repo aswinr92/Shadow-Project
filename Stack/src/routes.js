@@ -1,4 +1,4 @@
-angular.module('stack')
+angular.module('stack.angular')
     .config(function ($routeProvider) {
         'use strict';
 

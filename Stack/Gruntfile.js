@@ -304,7 +304,7 @@ module.exports = function (grunt) {
                 base: 'src',
                 quoteChar: '\'',
                 useStrict: true,
-                module: 'stack.templates',
+                module: 'stack.angular.templates',
                 singleModule: true
             },
             main: {

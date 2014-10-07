@@ -1,4 +1,4 @@
-angular.module('stack')
+angular.module('stack.angular')
 	.directive('alertMsg',function(){
 		'use strict';
 

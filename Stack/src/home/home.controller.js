@@ -1,70 +1,60 @@
-angular.module('stack')
-	.controller('HomeController',function($scope){
+angular.module('stack.angular')
+	.controller('HomeController',function($scope,stackStorage){
 		'use strict';
 
-		$scope.stacks = [];
+		//$scope.stack = [];
 		$scope.fadedIn = false;
-		var maxStackLength = 10;
-		$scope.tempstack = [];
 		$scope.flag = false;
+		$scope.removeItem = null;
+
+		var maxStackLength = 10;
+
+		$scope.stack = stackStorage.getAll() || [];
 
 		$scope.pushItem = function(name){
 			if (name === ''){
-				return null;
+				return 0;
 			}
 			else {
-				if($scope.stacks.length >= maxStackLength){
+				if($scope.stack.length >= maxStackLength){
 					$scope.fadedIn = true;
 					$scope.flag = true;
 					$scope.showMsg('Stack Overflow');
 				}
-				/*else {
-					$scope.stacks.push(name);
-					$scope.itemName = '';
-					$scope.fadedIn = true;
-					$scope.showMsg('One Item Added to stack');
-				}*/
 				else {
-					for( var i=$scope.stacks.length;i>0;i--){
-						$scope.tempstack[i] = $scope.stacks[i-1];
-					}
-					$scope.tempstack[0] = name;
-
-					$scope.stacks = $scope.tempstack;
+					$scope.stack.unshift(name);
 					$scope.itemName = '';
 					$scope.fadedIn = true;
 					$scope.flag = false;
 					$scope.showMsg('One Item Added to stack');
-					console.log($scope.stacks);
+					stackStorage.add(name);
 				}
 			}
 		};
 
 		$scope.popItem = function(){
-			if($scope.stacks.length === 0){
+			if($scope.stack.length === 0){
 				$scope.fadedIn = true;
 				$scope.flag = true;
 				$scope.showMsg('Stack Underflow');
 			}
 			else{
-				//var length = $scope.stacks.length-1;
-				//$scope.stacks.splice(length,1);
-				$scope.stacks.splice(0,1);
+				$scope.removedItem = $scope.stack.shift();
 				$scope.fadedIn = true;
 				$scope.flag = false;
 				$scope.showMsg('One Item Removed from stack');
-				console.log($scope.stacks);
+				stackStorage.remove();
 			}
 		};
 
 		$scope.removeAll = function(){
-			for(var i=$scope.stacks.length-1; i>=0;i--){
-				$scope.stacks.splice(i,1);
+			while($scope.stack.length){
+				$scope.stack.shift();
 			}
 			$scope.fadedIn = true;
 			$scope.flag = false;
 			$scope.showMsg('All Items Removed from stack');
-			console.log($scope.stacks);
+			stackStorage.removeAll();
 		};
 
 		$scope.showMsg = function(msg){
