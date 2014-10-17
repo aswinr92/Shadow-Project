@@ -99,9 +99,9 @@
 @line-height-large:         1.33;
 @line-height-small:         1.5;
 
-@border-radius-base:        4px;
-@border-radius-large:       6px;
-@border-radius-small:       3px;
+@border-radius-base:        0;//4px;
+@border-radius-large:       0;//6px;
+@border-radius-small:       0;//3px;
 
 //** Global color for active items (e.g., navs or dropdowns).
 @component-active-color:    #fff;
@@ -141,9 +141,9 @@
 
 @btn-font-weight:                normal;
 
-@btn-default-color:              #333;
+@btn-default-color:              @brand-primary;//#333;
 @btn-default-bg:                 #fff;
-@btn-default-border:             #ccc;
+@btn-default-border:             darken(@btn-default-bg,5%);//#ccc;
 
 @btn-primary-color:              #fff;
 @btn-primary-bg:                 @brand-primary;
@@ -721,11 +721,11 @@
 //** Padding around the thumbnail image
 @thumbnail-padding:           4px;
 //** Thumbnail background color
-@thumbnail-bg:                @body-bg;
+@thumbnail-bg:                fade(#fff,30%);   //@body-bg;
 //** Thumbnail border color
-@thumbnail-border:            #ddd;
+@thumbnail-border:            none;//#ddd;
 //** Thumbnail border radius
-@thumbnail-border-radius:     @border-radius-base;
+@thumbnail-border-radius:     0;//@border-radius-base;
 
 //** Custom text color for thumbnail captions
 @thumbnail-caption-color:     @text-color;
