@@ -1,4 +1,4 @@
-var Bbad = angular.module('Bbad', ['ngRoute']);
+var Bbad = angular.module('Bbad', ['ngRoute', 'ngGrid']);
 
 var Bbadcontroller = Bbad.controller;
 var Bbadconfig = Bbad.config;
