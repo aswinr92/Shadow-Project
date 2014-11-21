@@ -1,0 +1,20 @@
+<div id="outerWrapper">
+	<div id="UserInput">
+        <label for="itemName">Add Item:
+            <input type="text" data-ng-model="itemName" id="itemName">
+        </label>
+        <button data-ng-click="pushItem(itemName)">PUSH</button>
+		<button data-ng-click="popItem()">POP</button>
+		<button data-ng-click="removeAll()">REMOVE ALL</button>
+	</div>
+
+	<div id="stackContainer">
+		<ul>
+			<li data-ng-repeat="item in stack track by $index">{{item}}</li>
+		</ul>
+	</div>
+
+	<div  id="alertMessages" alert-msg fadeshown="fadedIn" data-ng-class="{error:flag}">{{alertMessage}}</div>
+
+	<div id="showLength">Length:{{stack.length}}</div>
+</div>
